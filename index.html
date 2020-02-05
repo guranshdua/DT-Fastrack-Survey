@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="./images/DT.png">
+        <script defer src="/__/firebase/7.8.0/firebase-app.js"></script>
+        <script defer src="/__/firebase/7.8.0/firebase-auth.js"></script>
+        <script defer src="/__/firebase/7.8.0/firebase-database.js"></script>
+        <script defer src="/__/firebase/init.js"></script>
+        
+        <title>DT Fastrack Survey</title>
+    </head>
+    <body>
+        <div class="absolute" id="timer1">
+            <div class="container">
+                <div class="abs">
+                    <h1 style="text-align: center; color:#fff; font-weight: 700;">Submitting your response!</h1>
+                    <br>
+                    <div class="progress">
+                        <div id="progress5s1" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="abso" id="timer">
+            <div class="container">
+                <div class="abs">
+                    <h1 style="text-align: center; color:#fff; font-weight: 700;">Loading your survey!</h1>
+                    <br>
+                    <div class="progress">
+                        <div id="progress5s" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="home" style="text-align:center; padding-top: 50px;">
+            <div class="abs">
+                <div id="home-screen">
+                    <img src="images/DT.png" style="width: 250px; height:auto;">
+                    <h4>Welcome to</h4>
+                    <h1 style="font-weight: 700;">FASTRACK PARKING</h1>
+                    <br><br>
+                    <button class="btn btn-one" id="start">Start the survey!</button>
+                </div>
+            </div>
+            <div class="absolu hidden">
+                <div id="result">
+                    <img src="images/DT.png" style="width: 250px; height:auto;">
+                    <h4>Your response has been</h4>
+                    <h1 style="font-weight: 700;">Submitted.</h1>
+                    <br><br>
+                    <h3 style="font-weight: 700;">Thank You!</h3>
+                </div>
+            </div>
+            <div id="questions" class="hidden">
+                <img src="images/DT.png" style="width: 150px; height:auto;">
+                <h5 style="font-weight: 700;">We would love if you answer the following questions:</h5>
+                <div class="container mt-5" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. Can we know your name please?:</h6>
+                                <br>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Name" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. Do you study in VIT?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="VIT" id="vit1" value="1" checked>
+                                        <label class="form-check-label" for="vit1">
+                                          Yes
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="VIT" id="vit2" value="1">
+                                        <label class="form-check-label" for="vit2">
+                                          No
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. Do you own or drive a car?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="car" id="car1" value="1" checked>
+                                        <label class="form-check-label" for="car1">
+                                          Yes
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="car" id="car2" value="0">
+                                        <label class="form-check-label" for="car2">
+                                          No
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. Do you use a Fastag for cashless payments at toll plazas?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="fastag" id="fastag1" value="1" checked>
+                                        <label class="form-check-label" for="fastag1">
+                                          Yes
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="fastag" id="fastag2" value="0">
+                                        <label class="form-check-label" for="fastag2">
+                                          No (You ought to get one though ;) )
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. How often do you visit a shopping mall or a parking complex?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <select class="custom-select" id="mall">
+                                        <option value="7" selected>Choose the suitable option:</option>
+                                        <option value="0">More than once a week</option>
+                                        <option value="1">2-4 times a month</option>
+                                        <option value="2">2 or Less than 2 times a month</option>
+                                        <option value="3">less than 5 times an year</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. How much time do you spend finding a place to park your vehicle?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <select class="custom-select" id="timefinding">
+                                        <option value="7" selected>Choose the suitable option:</option>
+                                        <option value="0">1-2 minutes</option>
+                                        <option value="1">upto 5 minutes</option>
+                                        <option value="2">upto 10 minutes</option>
+                                        <option value="3">more than 10 minutes (We feel for you)</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. How much time do you spend in the queue for paying the parking fee?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <select class="custom-select" id="timepaying">
+                                        <option value="7" selected>Choose the suitable option:</option>
+                                        <option value="0">1-2 minutes</option>
+                                        <option value="1">upto 5 minutes</option>
+                                        <option value="2">upto 10 minutes</option>
+                                        <option value="3">more than 10 minutes (We really feel for you)</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-4" style="text-align: left;">
+                    <div class="row">
+                        <div class="col-12 col-md-10 offset-md-1 br-1 questiondiv">
+                            <div class="container pt-2 pb-2 ">
+                                <h6 style="font-weight: 700;">Q. How often do you forget your parking slot/location?</h6>
+                                <br>
+                                <div class="form-group">
+                                    <select class="custom-select" id="forget">
+                                        <option value="7" selected>Choose the suitable option:</option>
+                                        <option value="0">Lol.. Everytime.</option>
+                                        <option value="1">Sometimes</option>
+                                        <option value="2">Never, I am a genius.</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5 style="font-weight: 700; margin-top:40px;">That's the end of the survey, you may now submit your response.</h5>
+                <button class="btn btn-one mt-2 mb-4" onclick="submit()" id="finish">Submit now!</button>                
+                
+            </div>
+        </div>
+        <div id="foot1" style="background-color: #333; color:#eee;align-items: center; justify-content: center; width:100%; text-align: center;">&copy 2020 Dua Technologies</div>
+        <div id="foot" class="bottom" style="background-color: #333; color:#eee;align-items: center; justify-content: center; width:100%; text-align: center;">&copy 2020 Dua Technologies</div>
+		
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <script>
+            $("#start").on('click',
+            function(){
+                $("#timer").addClass("translate-left");
+                counter=0;
+                var interval = setInterval(function() {
+                counter++;
+                if (counter == 25) {
+                    clearInterval(interval);
+                    $("#home-screen").hide();
+                    $("#foot").hide();
+                    $("body").css("overflow-y","auto");
+                    $("#timer").addClass("translate-back-left");
+                    $("#questions").addClass("display-trans");
+                }
+                $("#progress5s").css('width',counter*4+'%');
+                }, 100);
+            });
+        
+
+            function submit()
+            {
+                
+                var name=document.getElementById('name').value;
+                var vit = document.getElementById('vit1').checked; 
+                var car = document.getElementById('car1').checked; 
+                var fastag = document.getElementById('fastag1').checked;
+                var mall = document.getElementById('mall').value;
+                var timefinding = document.getElementById('timefinding').value;
+                var timepaying = document.getElementById('timepaying').value;
+                var forget = document.getElementById('forget').value;
+                console.log(vit)
+                if(name!="" && mall!=7 && timefinding!=7 && timepaying!=7 && forget!=7)
+                {
+                    console.log(mall)
+                    
+                    firebase.database().ref('responses/' + name).set({
+                        VIT: vit,
+                        car: car,
+                        fastag : fastag,
+                        mall : mall,
+                        timefinding : timefinding,
+                        timepaying : timepaying,
+                        forget : forget
+                    },function(error) {
+                        if (error) {
+                            console.log("Error");
+                        } else {
+                            document.body.scrollTop = 0; // For Safari
+                             document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                                console.log("done");
+                                $("body").css("overflow-y","hidden");
+                                $("#timer1").addClass("translate-left");
+                                counter=0;
+                                var interval = setInterval(function() {
+                                counter++;
+                                if (counter == 25) {
+                                    clearInterval(interval);
+                                    $("#questions").hide();
+                                    $("#foot1").hide();
+                                    //$("#foot").hide();
+                                    
+                                    $("#timer1").addClass("translate-back-left");
+                                    $("#result").addClass("display-trans");
+                                }
+                                $("#progress5s1").css('width',counter*4+'%');
+                                }, 100);
+                            
+                        }
+                    });
+
+                }
+                else
+                {
+                    console.log("rejected");
+                    $("#finish").css("background-color","red");
+                    $("#finish").html("Kindly fill out all the details");
+                    $
+                    counter=0;
+                    var interval = setInterval(function() {
+                    counter++;
+                    if (counter == 25) {
+                        clearInterval(interval);
+                        $("#finish").css("background-color","#92ed89");
+                        $("#finish").html("Submit now!");
+                    }
+                    $("#progress5s").css('width',counter*4+'%');
+                    }, 100);
+                }
+                
+
+            }
+        </script>
+    </body>
+</html>

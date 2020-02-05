@@ -1,0 +1,113 @@
+body
+{
+    background-color: #FFFAF1;
+    font-family: Montserrat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.btn-one
+{
+    background-color: #92ed89;
+    border-color: #000;
+    border-width: 1pt;
+    box-shadow: #92ed89;
+}
+
+.container .abs
+{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.bottom
+{
+    position: absolute;
+    bottom:0;
+    
+}
+
+.abso
+{
+    background-color: #2929cc;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index: 20;
+    left:100%;
+}
+
+.absolute
+{
+    background-color: #2929cc;
+    position:absolute;
+    height:100%;
+    width:100%;
+    z-index: 19;
+    left:100%;
+}
+
+.absolu
+{
+    background-color: #FFFAF1;
+    position:absolute;
+    top:50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+
+}
+
+.translate-left
+{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    left: 0% !important;
+}
+
+.translate-back-left
+{
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    left: 100% !important;
+}
+
+.display-trans
+{
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    visibility: visible !important;
+}
+
+
+.hidden
+{
+    visibility: hidden;
+}
+
+#home
+{
+    z-index:20;
+}
+
+.questiondiv
+{
+    background-color: #fff ;
+}
+
+.br-1
+{
+    border-radius: 5%;
+}
